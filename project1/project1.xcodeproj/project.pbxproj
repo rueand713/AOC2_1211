@@ -19,6 +19,7 @@
 		8381F045163875850053A651 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8381F044163875850053A651 /* ViewController.m */; };
 		8381F048163875850053A651 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8381F046163875850053A651 /* ViewController.xib */; };
 		8381F050163876090053A651 /* Base_Monster.m in Sources */ = {isa = PBXBuildFile; fileRef = 8381F04F163876090053A651 /* Base_Monster.m */; };
+		8381F053163886CE0053A651 /* Lesser_Monster.m in Sources */ = {isa = PBXBuildFile; fileRef = 8381F052163886CE0053A651 /* Lesser_Monster.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		8381F047163875850053A651 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		8381F04E163876090053A651 /* Base_Monster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base_Monster.h; sourceTree = "<group>"; };
 		8381F04F163876090053A651 /* Base_Monster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base_Monster.m; sourceTree = "<group>"; };
+		8381F051163886CE0053A651 /* Lesser_Monster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesser_Monster.h; sourceTree = "<group>"; };
+		8381F052163886CE0053A651 /* Lesser_Monster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lesser_Monster.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,8 @@
 				8381F032163875850053A651 /* Supporting Files */,
 				8381F04E163876090053A651 /* Base_Monster.h */,
 				8381F04F163876090053A651 /* Base_Monster.m */,
+				8381F051163886CE0053A651 /* Lesser_Monster.h */,
+				8381F052163886CE0053A651 /* Lesser_Monster.m */,
 			);
 			path = project1;
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 				8381F03C163875850053A651 /* AppDelegate.m in Sources */,
 				8381F045163875850053A651 /* ViewController.m in Sources */,
 				8381F050163876090053A651 /* Base_Monster.m in Sources */,
+				8381F053163886CE0053A651 /* Lesser_Monster.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,11 +12,12 @@
 {
     int endurance;
     int strength;
-    int defence;
-    int speed;
-    NSString *name;
+    int dexterity;
+    int agility;
+    NSString *type;
 }
 
--(void)setAttributes:(int)setEnd setStr:(int)setStr setDef:(int)setDef setSpd:(int)setSpd setName:(NSString*)setName;
+-(void)setAttributes:(int)setEnd setStr:(int)setStr setDex:(int)setDex setAgi:(int)setAgi setType:(NSString*)setType;
 -(void)getAttributes;
+-(int)calcToHit;
 @end

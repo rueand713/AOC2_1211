@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "Base_Monster.h"
+#import "Lesser_Monster.h"
 
 @interface ViewController ()
 
@@ -16,6 +18,22 @@
 
 - (void)viewDidLoad
 {
+    Base_Monster *bandit = [[Base_Monster alloc] init];
+    if (bandit != nil)
+    {
+        [bandit getAttributes];
+        int bandHit = [bandit calcToHit];
+        NSLog(@"Bandit toHit: %d", bandHit);
+    }
+    
+    Lesser_Monster *demonic_rabbit = [[Lesser_Monster alloc] init];
+    if (demonic_rabbit != nil)
+    {
+        [demonic_rabbit getAttributes];
+        int derabHit = [demonic_rabbit calcToHit];
+        NSLog(@"Demonic Rabbit toHit: %d", derabHit);
+    }
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
