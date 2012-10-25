@@ -14,6 +14,11 @@
 
 @implementation Base_Monster
 
+@synthesize endurance;
+@synthesize strength;
+@synthesize dexterity;
+@synthesize agility;
+
 -(id)init
 {
     self = [super init];
@@ -29,19 +34,25 @@
     return self;
 }
 
--(void)setAttributes:(int)setEnd setStr:(int)setStr setDex:(int)setDex setAgi:(int)setAgi setType:(NSString*)setType
+-(void)setPersistentAttr:(NSString*)setType setName:(NSString*)setName;
 {
-    // set the default variable values to the new passed in values
-    endurance = setEnd;
-    strength = setStr;
-    dexterity = setDex;
-    agility = setAgi;
+    // set the string variable values to the new passed in values
     type = setType;
+    name = setName;
+}
+
+-(void)setDynamicAttr:(int)end str:(int)str dex:(int)dex agi:(int)agi
+{
+    // set the integer values to the new passed in values
+    endurance = end;
+    strength = str;
+    dexterity = dex;
+    agility = agi;
 }
 
 -(void)getAttributes
 {
-    NSLog(@"TYPE: %@ END: %d STR: %d DEX: %d AGI: %d", type, endurance, strength, dexterity, agility);
+    NSLog(@"NAME: %@ TYPE: %@ END: %d STR: %d DEX: %d AGI: %d", name, type, endurance, strength, dexterity, agility);
 }
 
 -(int)calcToHit

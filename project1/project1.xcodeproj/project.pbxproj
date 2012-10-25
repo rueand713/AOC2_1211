@@ -22,6 +22,7 @@
 		8381F053163886CE0053A651 /* Lesser_Monster.m in Sources */ = {isa = PBXBuildFile; fileRef = 8381F052163886CE0053A651 /* Lesser_Monster.m */; };
 		8381F056163893660053A651 /* Greater_Monster.m in Sources */ = {isa = PBXBuildFile; fileRef = 8381F055163893650053A651 /* Greater_Monster.m */; };
 		8381F059163896480053A651 /* Boss_Monster.m in Sources */ = {isa = PBXBuildFile; fileRef = 8381F058163896480053A651 /* Boss_Monster.m */; };
+		8381F0641638C9C20053A651 /* Monster_Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8381F0631638C9C20053A651 /* Monster_Factory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,8 @@
 		8381F055163893650053A651 /* Greater_Monster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Greater_Monster.m; sourceTree = "<group>"; };
 		8381F057163896480053A651 /* Boss_Monster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_Monster.h; sourceTree = "<group>"; };
 		8381F058163896480053A651 /* Boss_Monster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Boss_Monster.m; sourceTree = "<group>"; };
+		8381F0621638C9C20053A651 /* Monster_Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Monster_Factory.h; sourceTree = "<group>"; };
+		8381F0631638C9C20053A651 /* Monster_Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Monster_Factory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,8 @@
 				8381F055163893650053A651 /* Greater_Monster.m */,
 				8381F057163896480053A651 /* Boss_Monster.h */,
 				8381F058163896480053A651 /* Boss_Monster.m */,
+				8381F0621638C9C20053A651 /* Monster_Factory.h */,
+				8381F0631638C9C20053A651 /* Monster_Factory.m */,
 			);
 			path = project1;
 			sourceTree = "<group>";
@@ -200,6 +205,7 @@
 				8381F053163886CE0053A651 /* Lesser_Monster.m in Sources */,
 				8381F056163893660053A651 /* Greater_Monster.m in Sources */,
 				8381F059163896480053A651 /* Boss_Monster.m in Sources */,
+				8381F0641638C9C20053A651 /* Monster_Factory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

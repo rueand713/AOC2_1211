@@ -22,7 +22,6 @@
     if (self != nil)
     {
         willResurrectFallen = true;
-        [self setAttributes:170 setStr:55 setDex:40 setAgi:30 setType:@"Boss"];
     }
     
     return  self;

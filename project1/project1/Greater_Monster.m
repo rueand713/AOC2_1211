@@ -22,7 +22,6 @@
     if (self != nil)
     {
         cpuWillUseItems = true;
-        [self setAttributes:75 setStr:15 setDex:10 setAgi:20 setType:@"Greater"];
     }
     
     return  self;

@@ -14,10 +14,19 @@
     int strength;
     int dexterity;
     int agility;
-    NSString *type;
+    NSString *type;     
+    NSString *name;     
 }
 
--(void)setAttributes:(int)setEnd setStr:(int)setStr setDex:(int)setDex setAgi:(int)setAgi setType:(NSString*)setType;
+
+-(void)setPersistentAttr:(NSString*)setType setName:(NSString*)setName;
+-(void)setDynamicAttr:(int)end str:(int)str dex:(int)dex agi:(int)agi;
 -(void)getAttributes;
 -(int)calcToHit;
+
+@property int endurance;
+@property int strength;
+@property int dexterity;
+@property int agility;
+
 @end

@@ -22,7 +22,6 @@
     if (self != nil)
     {
         cpuCanResurrect = true;
-        [self setAttributes:15 setStr:3 setDex:1 setAgi:4 setType:@"Lesser"];
     }
     
     return  self;

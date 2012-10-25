@@ -7,10 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "Base_Monster.h"
-#import "Lesser_Monster.h"
-#import "Greater_Monster.h"
-#import "Boss_Monster.h"
+#import "Monster_Factory.h"
+
 
 @interface ViewController ()
 
@@ -20,38 +18,42 @@
 
 - (void)viewDidLoad
 {
-    Lesser_Monster *demonic_rabbit = [[Lesser_Monster alloc] init];
-    if (demonic_rabbit != nil)
+    Monster_Factory *monsterMachine = [[Monster_Factory alloc] init];
+    if (monsterMachine != nil)
     {
-        [demonic_rabbit getAttributes];
-        int derabHit = [demonic_rabbit calcToHit];
-        NSLog(@"Demonic Rabbit toHit: %d. cpuCanResurrect: %@", derabHit, demonic_rabbit.cpuCanResurrect ? @"YES" : @"NO");
-    }
+        Lesser_Monster *demonic_rabbit = [monsterMachine makeLesserMonster:0 name:@"Demonic Rabbit"];
+        Base_Monster *bandit = [monsterMachine makeBasicMonster:1 name:@"Bandit"];
+        Greater_Monster *chaos_wizard = [monsterMachine makeGreaterMonster:2 name:@"Chaos Wizard"];
+        Boss_Monster *dark_underlord = [monsterMachine makeBossMonster:3 name:@"Dark Underlord"];
     
-    Base_Monster *bandit = [[Base_Monster alloc] init];
-    if (bandit != nil)
-    {
-        [bandit getAttributes];
-        int bandHit = [bandit calcToHit];
-        NSLog(@"Bandit toHit: %d.", bandHit);
-    }
+        if (demonic_rabbit != nil)
+        {
+            [demonic_rabbit getAttributes];
+            int derabHit = [demonic_rabbit calcToHit];
+            NSLog(@"Demonic Rabbit's toHit: %d. cpuCanResurrect: %@", derabHit, demonic_rabbit.cpuCanResurrect ? @"YES" : @"NO");
+        }
     
-    Greater_Monster *chaos_wizard = [[Greater_Monster alloc] init];
-    if (chaos_wizard != nil)
-    {
-        [chaos_wizard getAttributes];
-        int chaosWizHit = [chaos_wizard calcToHit];
-        NSLog(@"Chaos Wizard toHit: %d. cpuWillUseItems: %@", chaosWizHit, chaos_wizard.cpuWillUseItems ? @"YES" : @"NO");
-    }
+        if (bandit != nil)
+        {
+            [bandit getAttributes];
+            int bandHit = [bandit calcToHit];
+            NSLog(@"Bandit's toHit: %d.", bandHit);
+        }
     
-    Boss_Monster *dark_underlord = [[Boss_Monster alloc] init];
-    if (dark_underlord != nil)
-    {
-        [dark_underlord getAttributes];
-        int darkUnderHit = [dark_underlord calcToHit];
-        NSLog(@"Dark Underlord toHit: %d. WillResurrectFallen: %@", darkUnderHit, dark_underlord.willResurrectFallen ? @"YES" : @"NO");
-    }
+        if (chaos_wizard != nil)
+        {
+            [chaos_wizard getAttributes];
+            int chaosWizHit = [chaos_wizard calcToHit];
+            NSLog(@"Chaos Wizard's toHit: %d. cpuWillUseItems: %@", chaosWizHit, chaos_wizard.cpuWillUseItems ? @"YES" : @"NO");
+        }
     
+        if (dark_underlord != nil)
+        {
+            [dark_underlord getAttributes];
+            int darkUnderHit = [dark_underlord calcToHit];
+            NSLog(@"Dark Underlord's toHit: %d. WillResurrectFallen: %@", darkUnderHit, dark_underlord.willResurrectFallen ? @"YES" : @"NO");
+        }
+    }
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
