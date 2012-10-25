@@ -38,6 +38,8 @@ typedef enum {
         self.view.backgroundColor = [UIColor whiteColor];
     
         // start popping out monsters! (using the static Monster Factory)
+        // create a monster object from each of the subclasses (3 total)
+        // Base_Monster is the base class and its data is not displayed in labels
         Lesser_Monster *demonic_rabbit = [Monster_Factory makeLesserMonster:LESSER name:@"Demonic Rabbit"];
         Base_Monster *bandit = [Monster_Factory makeBasicMonster:BASE name:@"Bandit"];
         Greater_Monster *chaos_wizard = [Monster_Factory makeGreaterMonster:GREATER name:@"Chaos Wizard"];
@@ -60,7 +62,7 @@ typedef enum {
             NSString *hit = [[NSString alloc] initWithFormat:@"ToHit: %d", derabHit];
             
             
-            // UILabel Creation
+            // UILabel Creation for the demonic rabbit object
             [self createUI:0 y:0 w:320 h:115 text:@"" color:TRANS bg:GRAY];
             [self createUI:0 y:5 w:170 h:20 text:name color:WHITE bg:TRANS];
             [self createUI:175 y:5 w:150 h:20 text:type color:WHITE bg:TRANS];
@@ -90,7 +92,7 @@ typedef enum {
             NSString *hit = [[NSString alloc] initWithFormat:@"ToHit: %d", chaosWizHit];
             
             
-            // UILabel Creation
+            // UILabel Creation for the chaos wizard object
             [self createUI:0 y:120 w:320 h:115 text:@"" color:TRANS bg:WHITE];
             [self createUI:0 y:125 w:170 h:20 text:name color:GRAY bg:TRANS];
             [self createUI:175 y:125 w:150 h:20 text:type color:GRAY bg:TRANS];
@@ -120,7 +122,7 @@ typedef enum {
             NSString *hit = [[NSString alloc] initWithFormat:@"ToHit: %d", darkUnderHit];
             
             
-            // UILabel Creation
+            // UILabel Creation for the dark underlord object
             [self createUI:0 y:240 w:320 h:115 text:@"" color:TRANS bg:GRAY];
             [self createUI:0 y:245 w:170 h:20 text:name color:WHITE bg:TRANS];
             [self createUI:175 y:245 w:150 h:20 text:type color:WHITE bg:TRANS];

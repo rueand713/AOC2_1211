@@ -14,6 +14,7 @@
 
 @interface Monster_Factory : NSObject
 
+// static methods used for the monster factory
 +(Base_Monster*)makeBasicMonster:(int)type name:(NSString*)name;
 +(Lesser_Monster*)makeLesserMonster:(int)type name:(NSString*)name;
 +(Greater_Monster*)makeGreaterMonster:(int)type name:(NSString*)name;

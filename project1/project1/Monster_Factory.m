@@ -20,7 +20,7 @@
 
 +(Base_Monster*)makeBasicMonster:(int)type name:(NSString*)name
 {
-    if (type == 0)
+    if (type == LESSER)
     {
         // instantiate a basic monster
         Base_Monster *basic = [[Base_Monster alloc] init];
@@ -32,7 +32,7 @@
         // return the newly created basic monster
         return basic;
     }
-    else if (type == 1)
+    else if (type == BASE)
     {
         // instantiate a basic monster
         Base_Monster *basic = [[Base_Monster alloc] init];
@@ -44,7 +44,7 @@
         // return the newly created basic monster
         return basic;
     }
-    else if (type == 2)
+    else if (type == GREATER)
     {
         // instantiate a basic monster
         Base_Monster *basic = [[Base_Monster alloc] init];
@@ -56,7 +56,7 @@
         // return the newly created basic monster
         return basic;
     }
-    else if (type ==3)
+    else if (type == BOSS)
     {
         // instantiate a basic monster
         Base_Monster *basic = [[Base_Monster alloc] init];
@@ -74,7 +74,7 @@
 
 +(Lesser_Monster*)makeLesserMonster:(int)type name:(NSString*)name
 {
-    if (type == 0)
+    if (type == LESSER)
     {
         // instantiate a lesser monster
         Lesser_Monster *lesser = [[Lesser_Monster alloc] init];
@@ -89,7 +89,7 @@
         // return the newly created monster
         return lesser;
     }
-    else if (type == 1)
+    else if (type == BASE)
     {
         // instantiate a lesser monster
         Lesser_Monster *lesser = [[Lesser_Monster alloc] init];
@@ -104,7 +104,7 @@
         // return the newly created monster
         return lesser;
     }
-    else if (type == 2)
+    else if (type == GREATER)
     {
         // instantiate a lesser monster
         Lesser_Monster *lesser = [[Lesser_Monster alloc] init];
@@ -119,7 +119,7 @@
         // return the newly created monster
         return lesser;
     }
-    else if (type ==3)
+    else if (type == BOSS)
     {
         // instantiate a lesser monster
         Lesser_Monster *lesser = [[Lesser_Monster alloc] init];
@@ -140,7 +140,7 @@
 
 +(Greater_Monster*)makeGreaterMonster:(int)type name:(NSString*)name
 {
-    if (type == 0)
+    if (type == LESSER)
     {
         // instantiate a greater monster
         Greater_Monster *greater = [[Greater_Monster alloc] init];
@@ -155,7 +155,7 @@
         // return the newly created greater monster
         return greater;
     }
-    else if (type == 1)
+    else if (type == BASE)
     {
         // instantiate a greater monster
         Greater_Monster *greater = [[Greater_Monster alloc] init];
@@ -170,7 +170,7 @@
         // return the newly created greater monster
         return greater;
     }
-    else if (type == 2)
+    else if (type == GREATER)
     {
         // instantiate a greater monster
         Greater_Monster *greater = [[Greater_Monster alloc] init];
@@ -185,7 +185,7 @@
         // return the newly created greater monster
         return greater;
     }
-    else if (type ==3)
+    else if (type == BOSS)
     {
         // instantiate a greater monster
         Greater_Monster *greater = [[Greater_Monster alloc] init];
@@ -206,7 +206,7 @@
 
 +(Boss_Monster*)makeBossMonster:(int)type name:(NSString*)name
 {
-    if (type == 0)
+    if (type == LESSER)
     {
         // instantiate a boss monster
         Boss_Monster *boss = [[Boss_Monster alloc] init];
@@ -221,7 +221,7 @@
         // return the newly created boss monster
         return boss;
     }
-    else if (type == 1)
+    else if (type == BASE)
     {
         // instantiate a boss monster
         Boss_Monster *boss = [[Boss_Monster alloc] init];
@@ -236,7 +236,7 @@
         // return the newly created boss monster
         return boss;
     }
-    else if (type == 2)
+    else if (type == GREATER)
     {
         // instantiate a boss monster
         Boss_Monster *boss = [[Boss_Monster alloc] init];
@@ -251,7 +251,7 @@
         // return the newly created boss monster
         return boss;
     }
-    else if (type ==3)
+    else if (type == BOSS)
     {
         // instantiate a boss monster
         Boss_Monster *boss = [[Boss_Monster alloc] init];
