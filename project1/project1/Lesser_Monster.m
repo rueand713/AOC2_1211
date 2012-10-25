@@ -21,14 +21,23 @@
     self = [super init];
     if (self != nil)
     {
-        cpuCanResurrect = true;
+        // set the unique member name for referencing
+        specialname = @"cpuCanResurrect";
+        
+        // initiates as NO so it can be set manually during object instantiation
+        cpuCanResurrect = NO;
     }
     
     return  self;
 }
 
+// performs a calculation based on two data members and a passed in argument
+// this method overrides the inherited variant
 -(int)doTheMath:(float)rnd
 {
+    // determines the ToHit for LESSER monsters
+    // the calculation will severly reduce the toHit value
+    // increasing how easy it will be to land a successful strike
     float calculation;
     calculation = ((dexterity / 2) + (agility / 2) ) * rnd;
     

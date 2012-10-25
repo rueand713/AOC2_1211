@@ -14,8 +14,8 @@
 
 @interface Monster_Factory : NSObject
 
--(Base_Monster*)makeBasicMonster:(int)type name:(NSString*)name;
--(Lesser_Monster*)makeLesserMonster:(int)type name:(NSString*)name;
--(Greater_Monster*)makeGreaterMonster:(int)type name:(NSString*)name;
--(Boss_Monster*)makeBossMonster:(int)type name:(NSString*)name;
++(Base_Monster*)makeBasicMonster:(int)type name:(NSString*)name;
++(Lesser_Monster*)makeLesserMonster:(int)type name:(NSString*)name;
++(Greater_Monster*)makeGreaterMonster:(int)type name:(NSString*)name;
++(Boss_Monster*)makeBossMonster:(int)type name:(NSString*)name;
 @end

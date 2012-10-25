@@ -8,6 +8,28 @@
 
 #import <Foundation/Foundation.h>
 
+// typedef for better readability and flow of attribute handling
+typedef enum {
+    END = 0,
+    STR,
+    DEX,
+    AGI,
+    NAME,
+    TYPE,
+    SPNAME
+} constStats;
+
+// typedef for monster level targetting within each class
+// the factory can make 4 of each class with increasing difficulty
+// this enum represents that difficulty and NOT the class itself
+typedef enum {
+    LESSER = 0,
+    BASE,
+    GREATER,
+    BOSS
+} monsterLvClass;
+
+
 @interface Base_Monster : NSObject
 {
     int endurance;
@@ -15,13 +37,14 @@
     int dexterity;
     int agility;
     NSString *type;     
-    NSString *name;     
+    NSString *name;
+    NSString *specialname;
 }
 
 
 -(void)setPersistentAttr:(NSString*)setType setName:(NSString*)setName;
 -(void)setDynamicAttr:(int)end str:(int)str dex:(int)dex agi:(int)agi;
--(void)getAttributes;
+-(NSString*)getAttributes:(int)stat;
 -(int)calcToHit;
 
 @property int endurance;

@@ -34,6 +34,7 @@
     return self;
 }
 
+// method used to set the string attributes of the class
 -(void)setPersistentAttr:(NSString*)setType setName:(NSString*)setName;
 {
     // set the string variable values to the new passed in values
@@ -41,6 +42,7 @@
     name = setName;
 }
 
+// method used to set the integer attributes of the class
 -(void)setDynamicAttr:(int)end str:(int)str dex:(int)dex agi:(int)agi
 {
     // set the integer values to the new passed in values
@@ -50,13 +52,33 @@
     agility = agi;
 }
 
--(void)getAttributes
+// method used to retrieve the string attribute values
+// the integer variables are retrieved as OBJ-C property
+-(NSString*)getAttributes:(int)stat
 {
-    NSLog(@"NAME: %@ TYPE: %@ END: %d STR: %d DEX: %d AGI: %d", name, type, endurance, strength, dexterity, agility);
+    switch (stat) {
+        case NAME:
+            return name;
+            break;
+            
+        case TYPE:
+            return type;
+            break;
+            
+        case SPNAME:
+            return specialname;
+            
+        default:
+            break;
+    }
+
+    return nil;
 }
 
+// accessor method for calculating the "ToHit"
 -(int)calcToHit
 {
+    // simulated "Random" number
     float randomPercent = 0.50f;
     
     // access private method to perform calculation
@@ -65,8 +87,11 @@
     return toHit;
 }
 
+// the private method that actually performs the calculation
+// performs a calculation based on two data members and a passed in argument
 -(int)doTheMath:(float)rnd
 {
+    // determines toHit for BASE monster class only
     float calculation;
     calculation = (dexterity + agility) * rnd;
     
