@@ -20,6 +20,8 @@
 		8381F048163875850053A651 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8381F046163875850053A651 /* ViewController.xib */; };
 		8381F050163876090053A651 /* Base_Monster.m in Sources */ = {isa = PBXBuildFile; fileRef = 8381F04F163876090053A651 /* Base_Monster.m */; };
 		8381F053163886CE0053A651 /* Lesser_Monster.m in Sources */ = {isa = PBXBuildFile; fileRef = 8381F052163886CE0053A651 /* Lesser_Monster.m */; };
+		8381F056163893660053A651 /* Greater_Monster.m in Sources */ = {isa = PBXBuildFile; fileRef = 8381F055163893650053A651 /* Greater_Monster.m */; };
+		8381F059163896480053A651 /* Boss_Monster.m in Sources */ = {isa = PBXBuildFile; fileRef = 8381F058163896480053A651 /* Boss_Monster.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,10 @@
 		8381F04F163876090053A651 /* Base_Monster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base_Monster.m; sourceTree = "<group>"; };
 		8381F051163886CE0053A651 /* Lesser_Monster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesser_Monster.h; sourceTree = "<group>"; };
 		8381F052163886CE0053A651 /* Lesser_Monster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lesser_Monster.m; sourceTree = "<group>"; };
+		8381F054163893650053A651 /* Greater_Monster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Greater_Monster.h; sourceTree = "<group>"; };
+		8381F055163893650053A651 /* Greater_Monster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Greater_Monster.m; sourceTree = "<group>"; };
+		8381F057163896480053A651 /* Boss_Monster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boss_Monster.h; sourceTree = "<group>"; };
+		8381F058163896480053A651 /* Boss_Monster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Boss_Monster.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,10 @@
 				8381F04F163876090053A651 /* Base_Monster.m */,
 				8381F051163886CE0053A651 /* Lesser_Monster.h */,
 				8381F052163886CE0053A651 /* Lesser_Monster.m */,
+				8381F054163893650053A651 /* Greater_Monster.h */,
+				8381F055163893650053A651 /* Greater_Monster.m */,
+				8381F057163896480053A651 /* Boss_Monster.h */,
+				8381F058163896480053A651 /* Boss_Monster.m */,
 			);
 			path = project1;
 			sourceTree = "<group>";
@@ -188,6 +198,8 @@
 				8381F045163875850053A651 /* ViewController.m in Sources */,
 				8381F050163876090053A651 /* Base_Monster.m in Sources */,
 				8381F053163886CE0053A651 /* Lesser_Monster.m in Sources */,
+				8381F056163893660053A651 /* Greater_Monster.m in Sources */,
+				8381F059163896480053A651 /* Boss_Monster.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

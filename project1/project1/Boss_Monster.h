@@ -1,5 +1,5 @@
 //
-//  Lesser_Monster.h
+//  Boss_Monster.h
 //  project1
 //
 //  Created by Rueben Anderson on 10/24/12.
@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "Base_Monster.h"
 
-@interface Lesser_Monster : Base_Monster
+@interface Boss_Monster : Base_Monster
 {
-    BOOL cpuCanResurrect;
+    BOOL willResurrectFallen;
 }
 
-@property BOOL cpuCanResurrect;
+@property BOOL willResurrectFallen;
 @end

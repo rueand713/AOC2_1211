@@ -1,28 +1,28 @@
 //
-//  Lesser_Monster.m
+//  Greater_Monster.m
 //  project1
 //
 //  Created by Rueben Anderson on 10/24/12.
 //  Copyright (c) 2012 Rueben Anderson. All rights reserved.
 //
 
-#import "Lesser_Monster.h"
+#import "Greater_Monster.h"
 
-@interface Lesser_Monster()
+@interface Greater_Monster()
     -(int)doTheMath:(float)rnd;
 @end
 
-@implementation Lesser_Monster
+@implementation Greater_Monster
 
-@synthesize cpuCanResurrect;
+@synthesize cpuWillUseItems;
 
 -(id)init
 {
     self = [super init];
     if (self != nil)
     {
-        cpuCanResurrect = true;
-        [self setAttributes:15 setStr:3 setDex:1 setAgi:4 setType:@"Lesser"];
+        cpuWillUseItems = true;
+        [self setAttributes:75 setStr:15 setDex:10 setAgi:20 setType:@"Greater"];
     }
     
     return  self;
@@ -31,7 +31,7 @@
 -(int)doTheMath:(float)rnd
 {
     float calculation;
-    calculation = ((dexterity / 2) + (agility / 2) ) * rnd;
+    calculation = ((dexterity * 2) + (agility * 2) ) * rnd;
     
     return (int)calculation;
 }

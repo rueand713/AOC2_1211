@@ -1,5 +1,5 @@
 //
-//  Lesser_Monster.h
+//  Greater_Monster.h
 //  project1
 //
 //  Created by Rueben Anderson on 10/24/12.
@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "Base_Monster.h"
 
-@interface Lesser_Monster : Base_Monster
+@interface Greater_Monster : Base_Monster
 {
-    BOOL cpuCanResurrect;
+    BOOL cpuWillUseItems;
 }
 
-@property BOOL cpuCanResurrect;
+@property BOOL cpuWillUseItems;
 @end

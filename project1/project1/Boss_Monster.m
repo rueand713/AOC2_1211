@@ -1,28 +1,28 @@
 //
-//  Lesser_Monster.m
+//  Boss_Monster.m
 //  project1
 //
 //  Created by Rueben Anderson on 10/24/12.
 //  Copyright (c) 2012 Rueben Anderson. All rights reserved.
 //
 
-#import "Lesser_Monster.h"
+#import "Boss_Monster.h"
 
-@interface Lesser_Monster()
+@interface Boss_Monster()
     -(int)doTheMath:(float)rnd;
 @end
 
-@implementation Lesser_Monster
+@implementation Boss_Monster
 
-@synthesize cpuCanResurrect;
+@synthesize willResurrectFallen;
 
 -(id)init
 {
     self = [super init];
     if (self != nil)
     {
-        cpuCanResurrect = true;
-        [self setAttributes:15 setStr:3 setDex:1 setAgi:4 setType:@"Lesser"];
+        willResurrectFallen = true;
+        [self setAttributes:170 setStr:55 setDex:40 setAgi:30 setType:@"Boss"];
     }
     
     return  self;
@@ -31,7 +31,7 @@
 -(int)doTheMath:(float)rnd
 {
     float calculation;
-    calculation = ((dexterity / 2) + (agility / 2) ) * rnd;
+    calculation = ((dexterity * 2) + (agility * 2) ) * (rnd * 2);
     
     return (int)calculation;
 }
