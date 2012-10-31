@@ -9,11 +9,16 @@
 #import "ViewController.h"
 
 typedef enum {
-    ADD = 0,
+    EQUAL = 10,
     SUBTRACT,
+    ADD,
     MULTIPLY,
     DIVIDE,
-    CLEAR
+    CLEAR,
+    INFO,
+    SEGMENT,
+    SWITCHBTN,
+    NONE
 } operations;
 
 @interface ViewController ()
@@ -48,6 +53,17 @@ typedef enum {
         
         switch (numpad.tag) {
             case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+                // numeral buttons 0 - 9
+                
                 if (firstField)
                 {
                     // concatenates the string value of the current button to first operand
@@ -60,50 +76,91 @@ typedef enum {
                 }
                 break;
                 
-            case 1:
+            case EQUAL:
+                if (operation == ADD)
+                {
+                    // store an integer value of the operands after casting them in INT types
+                    int answerValue = (int)operandA + (int)operandB;
+                    
+                    // create a formatted string to pass into the answer variable for storing
+                    NSString *strAnswer = [[NSString alloc] initWithFormat:@"%d", answerValue];
+                    
+                    // stores the stringed answer for possible retrieval
+                    answer = strAnswer;
+                    
+                    // sets the answer UITextfield to the answer text
+                    answerField.text = answer;
+                }
+                else if (operation == SUBTRACT)
+                {
+                    // store an integer value of the operands after casting them in INT types
+                    int answerValue = (int)operandA - (int)operandB;
+                    
+                    // create a formatted string to pass into the answer variable for storing
+                    NSString *strAnswer = [[NSString alloc] initWithFormat:@"%d", answerValue];
+                    
+                    // stores the stringed answer for possible retrieval
+                    answer = strAnswer;
+                    
+                    // sets the answer UITextfield to the answer text
+                    answerField.text = answer;
+                }
+                else if (operation == MULTIPLY)
+                {
+                    // store an integer value of the operands after casting them in INT types
+                    int answerValue = (int)operandA * (int)operandB;
+                    
+                    // create a formatted string to pass into the answer variable for storing
+                    NSString *strAnswer = [[NSString alloc] initWithFormat:@"%d", answerValue];
+                    
+                    // stores the stringed answer for possible retrieval
+                    answer = strAnswer;
+                    
+                    // sets the answer UITextfield to the answer text
+                    answerField.text = answer;
+                }
+                else if (operation == DIVIDE)
+                {
+                    // store an integer value of the operands after casting them in INT types
+                    int answerValue = (int)operandA / (int)operandB;
+                    
+                    // create a formatted string to pass into the answer variable for storing
+                    NSString *strAnswer = [[NSString alloc] initWithFormat:@"%d", answerValue];
+                    
+                    // stores the stringed answer for possible retrieval
+                    answer = strAnswer;
+                    
+                    // sets the answer UITextfield to the answer text
+                    answerField.text = answer;
+                }
                 break;
                 
-            case 2:
-                break;
-            
-            case 3:
-                
+            case SUBTRACT:
+                // set the operation variable
+                operation = SUBTRACT;
                 break;
                 
-            case 4:
+            case ADD:
+                // set the operation variable
+                operation = ADD;
                 break;
                 
-            case 5:
+            case MULTIPLY:
+                // set the operation variable
+                operation = MULTIPLY;
                 break;
                 
-            case 6:
-                
+            case DIVIDE:
+                // set the operation variable
+                operation = DIVIDE;
                 break;
                 
-            case 7:
-                break;
-                
-            case 8:
-                break;
-                
-            case 9:
-                break;
-                
-            case 10:
-                break;
-                
-            case 11:
-                break;
-                
-            case 12:
-                break;
-                
-            case 13:
-                break;
-                
-            case 14:
-                break;
-                
+            case CLEAR:
+                // reset the calculator
+                answerField.text = @"";
+                operandA = @"";
+                operandB = @"";
+                operation = NONE;
             default:
                 break;
         }
@@ -113,7 +170,22 @@ typedef enum {
         UISwitch *numpad = (UISwitch *)sender;
         if (numpad != nil)
         {
-            
+            if (isSwitchOn.on)
+            {
+                // switch is on so turn it off
+                isSwitchOn.on = FALSE;
+            }
+            else
+            {
+                // switch is off so turn it on
+                isSwitchOn.on = TRUE;
+
+                // and reset the calculator
+                answerField.text = @"";
+                operandA = @"";
+                operandB = @"";
+                operation = NONE;
+            }
         }
         else
         {
