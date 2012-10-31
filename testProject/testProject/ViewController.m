@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "SecondViewController.h"
 #import "testClass.h"
 #import "Triangle.h"
 #import "Square.h"
@@ -19,6 +20,7 @@
 
 - (void)viewDidLoad
 {
+    
     testClass *initClass = [[testClass alloc] init];
     if (initClass != nil)
     {
@@ -47,6 +49,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)onOpen:(id)sender
+{
+    SecondViewController *secondViewController = [[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil];
+    
+    [self presentViewController:secondViewController animated:YES completion:nil];
 }
 
 @end
