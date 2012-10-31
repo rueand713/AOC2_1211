@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83109A5B1641D0950055EFF7 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83109A591641D0950055EFF7 /* SecondViewController.m */; };
+		83109A5C1641D0950055EFF7 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83109A5A1641D0950055EFF7 /* SecondViewController.xib */; };
 		83E44833164167C2006E8FF2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83E44832164167C2006E8FF2 /* UIKit.framework */; };
 		83E44835164167C2006E8FF2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83E44834164167C2006E8FF2 /* Foundation.framework */; };
 		83E44837164167C2006E8FF2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83E44836164167C2006E8FF2 /* CoreGraphics.framework */; };
@@ -21,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		83109A581641D0950055EFF7 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		83109A591641D0950055EFF7 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		83109A5A1641D0950055EFF7 /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
 		83E4482E164167C2006E8FF2 /* project2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83E44832164167C2006E8FF2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		83E44834164167C2006E8FF2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -89,6 +94,9 @@
 				83E4484B164167C2006E8FF2 /* ViewController.m */,
 				83E4484D164167C2006E8FF2 /* ViewController.xib */,
 				83E44839164167C2006E8FF2 /* Supporting Files */,
+				83109A581641D0950055EFF7 /* SecondViewController.h */,
+				83109A591641D0950055EFF7 /* SecondViewController.m */,
+				83109A5A1641D0950055EFF7 /* SecondViewController.xib */,
 			);
 			path = project2;
 			sourceTree = "<group>";
@@ -163,6 +171,7 @@
 				83E44847164167C2006E8FF2 /* Default@2x.png in Resources */,
 				83E44849164167C2006E8FF2 /* Default-568h@2x.png in Resources */,
 				83E4484F164167C2006E8FF2 /* ViewController.xib in Resources */,
+				83109A5C1641D0950055EFF7 /* SecondViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +185,7 @@
 				83E4483F164167C2006E8FF2 /* main.m in Sources */,
 				83E44843164167C2006E8FF2 /* AppDelegate.m in Sources */,
 				83E4484C164167C2006E8FF2 /* ViewController.m in Sources */,
+				83109A5B1641D0950055EFF7 /* SecondViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +300,7 @@
 				83E44854164167C2006E8FF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

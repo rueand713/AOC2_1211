@@ -14,11 +14,16 @@
     IBOutlet UISwitch *isSwitchOn;
     
     BOOL firstField;
+    BOOL switchWasOff;
+    BOOL afterEQ;
+    NSInteger answer;
     NSInteger operation;
-    NSString *answer;
-    NSString *operandA;
-    NSString *operandB;
+    NSInteger operandA;
+    NSInteger operandB;
+    NSInteger digitTracker;
 }
 
 -(IBAction)onClick:(id)sender;
+-(IBAction)onChangeSwitch:(id)sender;
+-(IBAction)onChangeSegment:(id)sender;
 @end
