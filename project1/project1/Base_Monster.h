@@ -45,7 +45,7 @@ typedef enum {
 -(void)setPersistentAttr:(NSString*)setType setName:(NSString*)setName;
 -(void)setDynamicAttr:(int)end str:(int)str dex:(int)dex agi:(int)agi;
 -(NSString*)getAttributes:(int)stat;
--(int)calcToHit;
+-(int)doTheMath:(float)rnd;
 
 @property int endurance;
 @property int strength;

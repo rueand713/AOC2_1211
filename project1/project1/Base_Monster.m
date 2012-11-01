@@ -8,10 +8,6 @@
 
 #import "Base_Monster.h"
 
-@interface Base_Monster()
-    -(int)doTheMath:(float)rnd;
-@end
-
 @implementation Base_Monster
 
 @synthesize endurance;
@@ -75,19 +71,6 @@
     return nil;
 }
 
-// accessor method for calculating the "ToHit"
--(int)calcToHit
-{
-    // simulated "Random" number
-    float randomPercent = 0.50f;
-    
-    // access private method to perform calculation
-    int toHit = [self doTheMath:randomPercent];
-    
-    return toHit;
-}
-
-// the private method that actually performs the calculation
 // performs a calculation based on two data members and a passed in argument
 -(int)doTheMath:(float)rnd
 {

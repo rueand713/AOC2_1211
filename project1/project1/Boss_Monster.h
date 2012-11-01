@@ -14,5 +14,6 @@
     BOOL willResurrectFallen;
 }
 
+-(float)doTheMath:(float)rnd;
 @property BOOL willResurrectFallen;
 @end

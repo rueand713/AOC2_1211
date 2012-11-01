@@ -8,10 +8,6 @@
 
 #import "Lesser_Monster.h"
 
-@interface Lesser_Monster()
-    -(int)doTheMath:(float)rnd;
-@end
-
 @implementation Lesser_Monster
 
 @synthesize cpuCanResurrect;
@@ -33,14 +29,22 @@
 
 // performs a calculation based on two data members and a passed in argument
 // this method overrides the inherited variant
--(int)doTheMath:(float)rnd
+-(float)doTheMath:(float)rnd
 {
-    // determines the ToHit for LESSER monsters
-    // the calculation will severly reduce the toHit value
-    // increasing how easy it will be to land a successful strike
-    float calculation;
-    calculation = ((dexterity / 2) + (agility / 2) ) * rnd;
+    // calculate the chance the monster will be
+    // resurrected successfully if attempt is made.
+    float resChance = 0;
     
-    return (int)calculation;
+    if (self.cpuCanResurrect)
+    {
+        resChance = ((dexterity * (rnd * 4)) / (agility * 2)) * rnd;
+        resChance *= 100;
+        if (resChance > 100)
+        {
+            resChance = 100;
+        }
+    }
+    
+     return resChance;
 }
 @end

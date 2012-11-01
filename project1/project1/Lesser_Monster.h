@@ -14,5 +14,6 @@
     BOOL cpuCanResurrect;
 }
 
+-(float)doTheMath:(float)rnd;
 @property BOOL cpuCanResurrect;
 @end

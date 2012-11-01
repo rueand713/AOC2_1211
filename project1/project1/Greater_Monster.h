@@ -14,5 +14,6 @@
     BOOL cpuWillUseItems;
 }
 
+-(float)doTheMath:(float)rnd;
 @property BOOL cpuWillUseItems;
 @end

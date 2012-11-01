@@ -8,10 +8,6 @@
 
 #import "Greater_Monster.h"
 
-@interface Greater_Monster()
-    -(int)doTheMath:(float)rnd;
-@end
-
 @implementation Greater_Monster
 
 @synthesize cpuWillUseItems;
@@ -33,14 +29,22 @@
 
 // performs a calculation based on two data members and a passed in argument
 // this method overrides the inherited variant
--(int)doTheMath:(float)rnd
+-(float)doTheMath:(float)rnd
 {
-    // determines the ToHit for GREATER monsters
-    // this will vastly increase the difficulty of landing a
-    // successful strike to the greater monsters
-    float calculation;
-    calculation = ((dexterity * 2) + (agility * 2) ) * rnd;
+    // calculate the chance the monster will choose to use
+    // an item from its surroundings
+    float useItemChance = 0;
     
-    return (int)calculation;
+    if (self.cpuWillUseItems)
+    {
+        useItemChance = ((strength * rnd) / (dexterity * 2)) * rnd;
+        useItemChance *= 100;
+        if (useItemChance > 100)
+        {
+            useItemChance = 100;
+        }
+    }
+    
+    return useItemChance;
 }
 @end

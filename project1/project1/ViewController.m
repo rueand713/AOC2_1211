@@ -38,18 +38,18 @@ typedef enum {
         self.view.backgroundColor = [UIColor whiteColor];
     
         // start popping out monsters! (using the static Monster Factory)
-        // create a monster object from each of the subclasses (3 total)
+        // create a monster object from each of the monster classes (4 total)
         // Base_Monster is the base class and its data is not displayed in labels
-        Lesser_Monster *demonic_rabbit = [Monster_Factory makeLesserMonster:LESSER name:@"Demonic Rabbit"];
-        Base_Monster *bandit = [Monster_Factory makeBasicMonster:BASE name:@"Bandit"];
-        Greater_Monster *chaos_wizard = [Monster_Factory makeGreaterMonster:GREATER name:@"Chaos Wizard"];
-        Boss_Monster *dark_underlord = [Monster_Factory makeBossMonster:BOSS name:@"Dark Underlord"];
+        Lesser_Monster *demonic_rabbit = (Lesser_Monster*)[Monster_Factory makeMonster:LESSER name:@"Demonic Rabbit"];
+        Base_Monster *bandit = [Monster_Factory makeMonster:BASE name:@"Bandit"];
+        Greater_Monster *chaos_wizard = (Greater_Monster*)[Monster_Factory makeMonster:GREATER name:@"Chaos Wizard"];
+        Boss_Monster *dark_underlord = (Boss_Monster*)[Monster_Factory makeMonster:BOSS name:@"Dark Underlord"];
     
         // Check if object is created properly if so log data and create UILabels
         if (demonic_rabbit != nil)
         {
-            // perform calculation to determine 'ToHit' stat
-            int derabHit = [demonic_rabbit calcToHit];
+            // perform calculation to determine special ability chance
+            float resChance = [demonic_rabbit doTheMath:0.75f];
             
             // create the strings to pass in to the label creation
             NSString *name = [[NSString alloc] initWithFormat:@" %@", [demonic_rabbit getAttributes:NAME]];
@@ -59,7 +59,7 @@ typedef enum {
             NSString *str = [[NSString alloc] initWithFormat:@"STR: %d", demonic_rabbit.strength];
             NSString *agi = [[NSString alloc] initWithFormat:@"AGI: %d", demonic_rabbit.agility];
             NSString *dex = [[NSString alloc] initWithFormat:@"DEX: %d", demonic_rabbit.dexterity];
-            NSString *hit = [[NSString alloc] initWithFormat:@"ToHit: %d", derabHit];
+            NSString *hit = [[NSString alloc] initWithFormat:@"SPC: %d%% Chance", (int)resChance];
             
             
             // UILabel Creation for the demonic rabbit object
@@ -70,7 +70,7 @@ typedef enum {
             [self createUI:101 y:30 w:90 h:20 text:str color:WHITE bg:TRANS];
             [self createUI:196 y:30 w:90 h:20 text:dex color:WHITE bg:TRANS];
             [self createUI:6 y:55 w:90 h:20 text:agi color:WHITE bg:TRANS];
-            [self createUI:101 y:55 w:90 h:20 text:hit color:WHITE bg:TRANS];
+            [self createUI:101 y:55 w:170 h:20 text:hit color:WHITE bg:TRANS];
             [self createUI:0 y:80 w:320 h:20 text:spname color:WHITE bg:TRANS];
             
         }
@@ -78,8 +78,8 @@ typedef enum {
         // Check if object is created properly if so log data and create UILabels
         if (chaos_wizard != nil)
         {
-            // perform calculation to determine 'ToHit' stat
-            int chaosWizHit = [chaos_wizard calcToHit];
+            // perform calculation to determine special ability chance
+            float useItemChance = [chaos_wizard doTheMath:0.65f];
             
             // create the strings to pass in to the label creation
             NSString *name = [[NSString alloc] initWithFormat:@" %@", [chaos_wizard getAttributes:NAME]];
@@ -89,7 +89,7 @@ typedef enum {
             NSString *str = [[NSString alloc] initWithFormat:@"STR: %d", chaos_wizard.strength];
             NSString *agi = [[NSString alloc] initWithFormat:@"AGI: %d", chaos_wizard.agility];
             NSString *dex = [[NSString alloc] initWithFormat:@"DEX: %d", chaos_wizard.dexterity];
-            NSString *hit = [[NSString alloc] initWithFormat:@"ToHit: %d", chaosWizHit];
+            NSString *hit = [[NSString alloc] initWithFormat:@"SPC: %d%% Chance", (int)useItemChance];
             
             
             // UILabel Creation for the chaos wizard object
@@ -100,7 +100,7 @@ typedef enum {
             [self createUI:101 y:150 w:90 h:20 text:str color:GRAY bg:TRANS];
             [self createUI:196 y:150 w:90 h:20 text:dex color:GRAY bg:TRANS];
             [self createUI:6 y:175 w:90 h:20 text:agi color:GRAY bg:TRANS];
-            [self createUI:101 y:175 w:90 h:20 text:hit color:GRAY bg:TRANS];
+            [self createUI:101 y:175 w:170 h:20 text:hit color:GRAY bg:TRANS];
             [self createUI:0 y:200 w:320 h:20 text:spname color:GRAY bg:TRANS];
         }
     
@@ -108,8 +108,8 @@ typedef enum {
         // Check if object is created properly if so log data and create UILabels
         if (dark_underlord != nil)
         {
-            // perform calculation to determine 'ToHit' stat
-            int darkUnderHit = [dark_underlord calcToHit];
+            // perform calculation to determine special ability chance
+            float chanceResAttempt = [dark_underlord doTheMath:0.50f];
             
             // create the strings to pass in to the label creation
             NSString *name = [[NSString alloc] initWithFormat:@" %@", [dark_underlord getAttributes:NAME]];
@@ -119,7 +119,7 @@ typedef enum {
             NSString *str = [[NSString alloc] initWithFormat:@"STR: %d", dark_underlord.strength];
             NSString *agi = [[NSString alloc] initWithFormat:@"AGI: %d", dark_underlord.agility];
             NSString *dex = [[NSString alloc] initWithFormat:@"DEX: %d", dark_underlord.dexterity];
-            NSString *hit = [[NSString alloc] initWithFormat:@"ToHit: %d", darkUnderHit];
+            NSString *hit = [[NSString alloc] initWithFormat:@"SPC: %d%% Chance", (int)chanceResAttempt];
             
             
             // UILabel Creation for the dark underlord object
@@ -130,10 +130,40 @@ typedef enum {
             [self createUI:101 y:265 w:90 h:20 text:str color:WHITE bg:TRANS];
             [self createUI:196 y:265 w:90 h:20 text:dex color:WHITE bg:TRANS];
             [self createUI:6 y:290 w:90 h:20 text:agi color:WHITE bg:TRANS];
-            [self createUI:101 y:290 w:90 h:20 text:hit color:WHITE bg:TRANS];
+            [self createUI:101 y:290 w:170 h:20 text:hit color:WHITE bg:TRANS];
             [self createUI:0 y:315 w:320 h:20 text:spname color:WHITE bg:TRANS];
 
         }
+    
+    // Check if object is created properly if so log data and create UILabels
+    if (bandit != nil)
+    {
+        // perform calculation to determine 'ToHit' stat
+        float toHit = [bandit doTheMath:0.80f];
+        
+        // create the strings to pass in to the label creation
+        NSString *name = [[NSString alloc] initWithFormat:@" %@", [bandit getAttributes:NAME]];
+        NSString *type = [[NSString alloc] initWithFormat:@" Type: %@", [bandit getAttributes:TYPE]];
+        NSString *spname = [[NSString alloc] initWithFormat:@" Ability: NONE  Active: "];
+        NSString *end = [[NSString alloc] initWithFormat:@"END: %d", bandit.endurance];
+        NSString *str = [[NSString alloc] initWithFormat:@"STR: %d", bandit.strength];
+        NSString *agi = [[NSString alloc] initWithFormat:@"AGI: %d", bandit.agility];
+        NSString *dex = [[NSString alloc] initWithFormat:@"DEX: %d", bandit.dexterity];
+        NSString *hit = [[NSString alloc] initWithFormat:@"ToHit: %d", (int)toHit];
+        
+        
+        // UILabel Creation for the bandit object
+        [self createUI:0 y:355 w:320 h:115 text:@"" color:TRANS bg:WHITE];
+        [self createUI:0 y:365 w:170 h:20 text:name color:GRAY bg:TRANS];
+        [self createUI:175 y:365 w:150 h:20 text:type color:GRAY bg:TRANS];
+        [self createUI:6 y:385 w:90 h:20 text:end color:GRAY bg:TRANS];
+        [self createUI:101 y:385 w:90 h:20 text:str color:GRAY bg:TRANS];
+        [self createUI:196 y:385 w:90 h:20 text:dex color:GRAY bg:TRANS];
+        [self createUI:6 y:410 w:90 h:20 text:agi color:GRAY bg:TRANS];
+        [self createUI:101 y:410 w:170 h:20 text:hit color:GRAY bg:TRANS];
+        [self createUI:0 y:435 w:320 h:20 text:spname color:GRAY bg:TRANS];
+        
+    }
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
