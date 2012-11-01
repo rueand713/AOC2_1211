@@ -16,10 +16,10 @@
     BOOL firstField;
     BOOL switchWasOff;
     BOOL afterEQ;
-    NSInteger answer;
+    float answer;
     NSInteger operation;
-    NSInteger operandA;
-    NSInteger operandB;
+    float operandA;
+    float operandB;
     NSInteger digitTracker;
 }
 

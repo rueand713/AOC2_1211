@@ -93,7 +93,7 @@ typedef enum {
                     }
                     
                     // store the string version of the operandA
-                    NSString *stringCurrentInput = [[NSString alloc] initWithFormat:@"%d", operandA];
+                    NSString *stringCurrentInput = [[NSString alloc] initWithFormat:@"%d", (int)operandA];
                     
                     // show the current value being input in textField
                     answerField.text = stringCurrentInput;
@@ -117,7 +117,7 @@ typedef enum {
                     }
                     
                     // store the string version of the operandB
-                    NSString *stringCurrentInput = [[NSString alloc] initWithFormat:@"%d", operandB];
+                    NSString *stringCurrentInput = [[NSString alloc] initWithFormat:@"%d", (int)operandB];
                     
                     // show the current value being input in textField
                     answerField.text = stringCurrentInput;
@@ -136,7 +136,7 @@ typedef enum {
                     answer = operandA + operandB;
                     
                     // create a formatted string to pass into the answer variable for storing
-                    NSString *strAnswer = [[NSString alloc] initWithFormat:@"%d", answer];
+                    NSString *strAnswer = [[NSString alloc] initWithFormat:@"%d", (int)answer];
                     
                     // sets the answer UITextfield to the answer text
                     answerField.text = strAnswer;
@@ -147,7 +147,7 @@ typedef enum {
                     answer = operandA - operandB;
                     
                     // create a formatted string to pass into the answer variable for storing
-                    NSString *strAnswer = [[NSString alloc] initWithFormat:@"%d", answer];
+                    NSString *strAnswer = [[NSString alloc] initWithFormat:@"%d", (int)answer];
                     
                     // sets the answer UITextfield to the answer text
                     answerField.text = strAnswer;
@@ -159,7 +159,7 @@ typedef enum {
                     answer = operandA * operandB;
                     
                     // create a formatted string to pass into the answer variable for storing
-                    NSString *strAnswer = [[NSString alloc] initWithFormat:@"%d", answer];
+                    NSString *strAnswer = [[NSString alloc] initWithFormat:@"%d", (int)answer];
                     
                     // sets the answer UITextfield to the answer text
                     answerField.text = strAnswer;
@@ -168,9 +168,20 @@ typedef enum {
                 {
                     // store an integer value of the operands
                     answer = operandA / operandB;
+                    float remainderCheck = answer / (int)answer;
                     
-                    // create a formatted string to pass into the answer variable for storing
-                    NSString *strAnswer = [[NSString alloc] initWithFormat:@"%d", answer];
+                    NSString *strAnswer;
+                    
+                    // do a remainder check for the float value
+                    // create a formatted string to pass into the answer variable for storing based on rather there is a remainder present or not for formatting
+                    if (remainderCheck == 1)
+                    {
+                        strAnswer = [[NSString alloc] initWithFormat:@"%d", (int)answer];
+                    }
+                    else
+                    {
+                        strAnswer = [[NSString alloc] initWithFormat:@"%f", answer];
+                    }
                     
                     // sets the answer UITextfield to the answer text
                     answerField.text = strAnswer;
