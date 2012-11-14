@@ -13,6 +13,7 @@
     IBOutlet UIView *topView;
     IBOutlet UIView *bottomView;
     IBOutlet UIButton *button;
+    IBOutlet UITextField *textField;
     
     CGRect originalFrame;
     BOOL isTopView;
