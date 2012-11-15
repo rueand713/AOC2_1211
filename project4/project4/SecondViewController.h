@@ -27,6 +27,9 @@
     // left swipe recognizer object
     UISwipeGestureRecognizer *leftSwiper;
     
+    // save the button input from the alertview
+    NSInteger buttonPressed;
+    
     // delegate for the event callbacks
     id<undergroundRailroad> delegate;
 }

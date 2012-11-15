@@ -23,6 +23,9 @@
     IBOutlet UIDatePicker *datePicker;
     IBOutlet UIButton *keypadBtn;
     
+    // save the button input from the alertview
+    NSInteger buttonPressed;
+    
     // delegate for the event callbacks
     id<undergroundRailroad> delegate;
 }

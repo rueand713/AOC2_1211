@@ -13,6 +13,8 @@ typedef enum {
     CLOSEKB
 } addEventBtns;
 
+#define CONTINUE 1
+
 @interface SecondViewController ()
 
 @end
@@ -96,11 +98,14 @@ typedef enum {
                         
                         // communicate data back with 1st view
                         [delegate secondViewClosed:eventString];
+                        
+                        // dissmiss the current view
+                        [self dismissViewControllerAnimated:YES completion:nil];
                     }
                     else if (emptyCheck == YES)
                     {
                         // create a error alertView object for displaying when there is no data to save
-                        UIAlertView *saveError = [[UIAlertView alloc] initWithTitle:@"Save Aborted!" message:@"No valid event title was input. Data not saved." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                        UIAlertView *saveError = [[UIAlertView alloc] initWithTitle:@"Save Aborted!" message:@"No valid event title was input. Continue without saving?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Continue", nil];
                         
                         if (saveError != nil)
                         {
@@ -109,10 +114,6 @@ typedef enum {
                         }
                     }
                 }
-                
-                // dissmiss the current view
-                [self dismissViewControllerAnimated:YES completion:nil];
-
                 break;
             case CLOSEKB:
                 
@@ -163,6 +164,19 @@ typedef enum {
 {
     // hides the close keyboard button
     keypadBtn.hidden = YES;
+}
+
+// Called when a button is clicked. The view will be automatically dismissed after this call returns
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    // set the buttonPressed variable to the passed in button Index value
+    buttonPressed = buttonIndex;
+    
+    if (buttonPressed == CONTINUE)
+    {
+        // dissmiss the current view
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 @end

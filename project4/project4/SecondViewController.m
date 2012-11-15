@@ -13,6 +13,8 @@ typedef enum {
     CLOSEKB
 } addEventBtns;
 
+#define CONTINUE 1
+
 @implementation SecondViewController
 
 @synthesize delegate;
@@ -113,8 +115,9 @@ typedef enum {
     keypadBtn.hidden = YES;
 }
 
-// when triggered it will close current view and pass a
-// formatted string to the delegate
+// when triggered it will attempt to close current view and pass a
+// formatted string to the delegate if the string is a valid string
+// the string will be validated if it fails a prompt will be presented
 -(void)swipeControl
 {
     // create a characterset object for whitepsaces based on the Apple developer site
@@ -143,11 +146,14 @@ typedef enum {
             
             // communicate data back with 1st view
             [delegate secondViewClosed:eventString];
+            
+            // dissmiss the current view
+            [self dismissViewControllerAnimated:YES completion:nil];
         }
         else if (emptyCheck == YES)
         {
             // create a error alertView object for displaying when there is no data to save
-            UIAlertView *saveError = [[UIAlertView alloc] initWithTitle:@"Save Aborted!" message:@"No valid event title was input. Data not saved." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *saveError = [[UIAlertView alloc] initWithTitle:@"Save Aborted!" message:@"No valid event title was input. Continue without saving data?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Continue", nil];
             
             if (saveError != nil)
             {
@@ -156,9 +162,19 @@ typedef enum {
             }
         }
     }
+}
+
+// Called when a button is clicked. The view will be automatically dismissed after this call returns
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    // set the buttonPressed variable to the passed in button Index value
+    buttonPressed = buttonIndex;
     
-    // dissmiss the current view
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if (buttonPressed == CONTINUE)
+    {
+        // dissmiss the current view
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 
