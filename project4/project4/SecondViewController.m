@@ -144,6 +144,17 @@ typedef enum {
             // communicate data back with 1st view
             [delegate secondViewClosed:eventString];
         }
+        else if (emptyCheck == YES)
+        {
+            // create a error alertView object for displaying when there is no data to save
+            UIAlertView *saveError = [[UIAlertView alloc] initWithTitle:@"Save Aborted!" message:@"No valid event title was input. Data not saved." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            
+            if (saveError != nil)
+            {
+                // present the error message
+                [saveError show];
+            }
+        }
     }
     
     // dissmiss the current view

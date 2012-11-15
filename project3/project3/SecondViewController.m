@@ -67,20 +67,47 @@ typedef enum {
     UIButton *button = (UIButton *)sender;
     if (button != nil)
     {
+        // create a characterset object for whitepsaces based on the Apple developer site
+        /* http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/Strings/Articles/CharacterSets.html#//apple_ref/doc/uid/20000146-BAJBJHCG
+         */
+        NSCharacterSet *whiteSpaces = [NSCharacterSet whitespaceCharacterSet];
+        
+        // create a temp string for holding a white space trimmed textfield text
+        NSString *stringTrimmer = [[NSString alloc] initWithString: textField.text];
+        
         switch (button.tag) {
             case SAVE:
                 
+                stringTrimmer = [stringTrimmer stringByTrimmingCharactersInSet: whiteSpaces];
+                
+                // checks if the whitespace trimmed string is still valid
+                // by looking for an empty set
+                BOOL emptyCheck = [stringTrimmer isEqualToString:@""];
+
                 if (delegate != nil)
                 {
-                    // create an empty string to hold the event text
-                    NSString *eventString = [[NSString alloc] init];
-                    
-                    // set fetched formatted event string to the eventString variable
-                    eventString = [self sendDataCart];
-                    
-                    // communicate data back with 1st view
-                    [delegate secondViewClosed:eventString];
-
+                    if (emptyCheck == NO)
+                    {
+                        // create an empty string to hold the event text
+                        NSString *eventString = [[NSString alloc] init];
+                        
+                        // set fetched formatted event string to the eventString variable
+                        eventString = [self sendDataCart];
+                        
+                        // communicate data back with 1st view
+                        [delegate secondViewClosed:eventString];
+                    }
+                    else if (emptyCheck == YES)
+                    {
+                        // create a error alertView object for displaying when there is no data to save
+                        UIAlertView *saveError = [[UIAlertView alloc] initWithTitle:@"Save Aborted!" message:@"No valid event title was input. Data not saved." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                        
+                        if (saveError != nil)
+                        {
+                            // present the error message
+                            [saveError show];
+                        }
+                    }
                 }
                 
                 // dissmiss the current view

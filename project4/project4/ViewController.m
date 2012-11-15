@@ -13,6 +13,18 @@
 
 - (void)viewDidLoad
 {
+    // load in any previous events from the NSUserDefaults
+    // and set it to the textView text
+    NSUserDefaults *loadDefaults = [NSUserDefaults standardUserDefaults];
+    if (loadDefaults != nil)
+    {
+        // set the data in the NSUserDefaults Events key to the defaultText object
+        NSString *defaultText = [loadDefaults objectForKey:@"Events"];
+        
+        // set the textView object text to the text stored in the NSUserDefaults
+        textView.text = defaultText;
+    }
+    
     // initialize the rightSwiper object
     rightSwiper = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeControl)];
     rightSwiper.direction = UISwipeGestureRecognizerDirectionRight;
@@ -34,18 +46,36 @@
 // when clicked it will save the data of the textView into the NSUserDefaults
 - (IBAction)onClick:(id)sender
 {
-    // create a NSUserDefaults object for storing and manipulating the events
-    NSUserDefaults *textData = [NSUserDefaults standardUserDefaults];
-    if (textData != nil)
+    // store the textView text into a temp string
+    NSString *textString = textView.text;
+    
+    // checks if the whitespace trimmed string is still valid
+    // by looking for an empty set
+    BOOL emptyCheck = [textString isEqualToString:@""];
+    
+    if (emptyCheck == NO)
     {
-        // store the textView text into a temp string
-        NSString *textString = textView.text;
+        // create a NSUserDefaults object for storing and manipulating the events
+        NSUserDefaults *textData = [NSUserDefaults standardUserDefaults];
+        if (textData != nil)
+        {
+            // store the text from the textView into the NSUser defaults
+            [textData setObject:textString forKey:@"Events"];
+            
+            // save out the data
+            [textData synchronize];
+        }
+    }
+    else if (emptyCheck == YES)
+    {
+        // create a error alertView object for displaying when there is no data to save
+        UIAlertView *saveError = [[UIAlertView alloc] initWithTitle:@"OOPS!" message:@"No data to save!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
-        // store the text from the textView into the NSUser defaults
-        [textData setObject:textString forKey:@"Events"];
-        
-        // save out the data
-        [textData synchronize];
+        if (saveError != nil)
+        {
+            // present the error message
+            [saveError show];
+        }
     }
 }
 
